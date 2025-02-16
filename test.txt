@@ -1,5 +1,4 @@
 new test!
 another test!!
 testing on main rebasing
-test git rebasing
-
+testing git hook pre-commit no whitespace
