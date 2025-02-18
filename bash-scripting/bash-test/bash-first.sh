@@ -12,7 +12,7 @@ number=10
 if [ $number -gt 5 ]; then
 	echo "number greater than 5"
  else
- 	echo "number less than or equal to 5"
+	echo "number less than or equal to 5"
 fi
 echo " "
 
