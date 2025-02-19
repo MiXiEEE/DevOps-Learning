@@ -8,7 +8,6 @@ if [[ ! -f "$LOG_FILE" ]]; then
 	touch "$LOG_FILE"
 fi
 
-
 # Extract failed ssh login attempts and count by IP
  > "$LOG_FILE"
 grep "Failed password" "$FETCH_LOG" | awk '{
