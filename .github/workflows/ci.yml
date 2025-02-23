@@ -17,6 +17,6 @@ jobs:
       run: echo "Bash is set up"
 
     - name: Run scripts # Step to run the bash scripts
-      run |
+      run: |
         chmod +x bash-scripting/scripting/*.sh # Make all scripts executable
         ./bash-scripting/scripting/check-dir.sh # Run a specific script
