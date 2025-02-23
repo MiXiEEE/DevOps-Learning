@@ -9,8 +9,8 @@ error_exit() {
 	exit 1
 }
 
-echo -e "${CYAN}Input directory you want to log file names from${RESET}"
-read directory
+# echo -e "${CYAN}Input directory you want to log file names from${RESET}"
+directory=$(realpath "$1")
 
 # check if provided directory exists and isn't empty
 if [ ! -d "${directory}" ]; then

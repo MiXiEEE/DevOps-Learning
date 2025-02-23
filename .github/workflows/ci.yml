@@ -13,9 +13,6 @@ jobs:
     - name: Checkout code # Step to check out the code
       uses: actions/checkout@v2
 
-    - name: Set up Bash # Placeholder step for setting up Bash
-      run: echo "Bash is set up"
-
     - name:
       run: |
         echo "Current directory: $(pwd)"
@@ -25,3 +22,4 @@ jobs:
       run: |
         chmod +x bash-scripting/scripting/*.sh # Make all scripts executable
         ./bash-scripting/scripting/check-dir.sh ./bash-scripting/scripting # Run a specific script
+        ./bash-scripting/scripting/dir-file.loop.sh /bash-scripting/scripting # Loop over all files in the specified directory
