@@ -23,4 +23,4 @@ jobs:
     - name: Run scripts # Step to run the bash scripts
       run: |
         ./bash-scripting/scripting/check-dir.sh ./bash-scripting/scripting # Run a specific script
-        ./bash-scripting/scripting/dir-file.loop.sh ./bash-scripting/scripting # Loop over all files in the specified directory
+        ./bash-scripting/scripting/dir-file-loop.sh ./bash-scripting/scripting # Loop over all files in the specified directory
