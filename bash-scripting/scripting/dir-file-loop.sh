@@ -22,10 +22,13 @@ fi
 log_file="log_$(date +%Y-%m-%d_%H-%M-%S).txt" #sets log file name with date
 
 maxCount=0
-for file in "$directory"/.* "$directory"/* #loops through all hidden files / unhidden files
+for file in "$directory"/* "$directory"/.* #loops through all hidden files / unhidden files
 do
 	# Skip . and .. and .* directory entries
-	[[ "$file" == "$directory/." || "$file" == "$directory/.." || "$file" == "$directory/.*" ]] && continue
+	#[[ "$file" == "$directory/." || "$file" == "$directory/.." || "$file" == "$directory/.*" ]] && continue
+	if [[ "$file" == "$directory/." || "$file" == "$directory/.." || ! -e "$file" ]]; then
+		continue
+	fi
 	maxCount=$((maxCount+1))
 	# echo "${file##*/}" >> "$log_file"
 	echo "${file##*/}"
