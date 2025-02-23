@@ -4,8 +4,8 @@ RED="\e[31m"
 CYAN="\e[36m"
 RESET="\e[0m"
 
-echo -e "${CYAN}Input directory path!${RESET}"
-read dirPath
+# echo -e "${CYAN}Input directory path!${RESET}"
+dirPath=$(realpath "$1")
 
 error_exit() {
 	echo -e "${RED}Error: $1${RESET}" >&2
