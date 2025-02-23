@@ -13,13 +13,14 @@ jobs:
     - name: Checkout code # Step to check out the code
       uses: actions/checkout@v2
 
-    - name:
+    - name: Debug directory structure
       run: |
         echo "Current directory: $(pwd)"
         ls -R
+    - name: Make scripts executable # Step to make scripts executable
+      run: chmod +x bash-scripting/scripting/*.sh
 
     - name: Run scripts # Step to run the bash scripts
       run: |
-        chmod +x bash-scripting/scripting/*.sh # Make all scripts executable
         ./bash-scripting/scripting/check-dir.sh ./bash-scripting/scripting # Run a specific script
-        ./bash-scripting/scripting/dir-file.loop.sh ./bash-scripting/scripting/ # Loop over all files in the specified directory
+        ./bash-scripting/scripting/dir-file.loop.sh ./bash-scripting/scripting # Loop over all files in the specified directory
