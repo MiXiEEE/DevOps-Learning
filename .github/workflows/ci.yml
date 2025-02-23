@@ -16,6 +16,11 @@ jobs:
     - name: Set up Bash # Placeholder step for setting up Bash
       run: echo "Bash is set up"
 
+    - name:
+      run: |
+        echo "Current directory: $(pwd)"
+        ls -R
+
     - name: Run scripts # Step to run the bash scripts
       run: |
         chmod +x bash-scripting/scripting/*.sh # Make all scripts executable
