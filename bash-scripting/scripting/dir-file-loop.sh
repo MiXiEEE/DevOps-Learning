@@ -27,6 +27,8 @@ do
 	# Skip . and .. and .* directory entries
 	[[ "$file" == "$directory/." || "$file" == "$directory/.." || "$file" == "$directory/.*" ]] && continue
 	maxCount=$((maxCount+1))
-	echo "${file##*/}" >> "$log_file"
+	# echo "${file##*/}" >> "$log_file"
+	echo "${file##*/}"
 done
-echo "Logged file count is: ${maxCount}" >> "$log_file"
+# echo "Logged file count is: ${maxCount}" >> "$log_file"
+echo "Logged file count is: ${maxCount}"
