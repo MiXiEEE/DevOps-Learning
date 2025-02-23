@@ -19,4 +19,4 @@ jobs:
     - name: Run scripts # Step to run the bash scripts
       run: |
         chmod +x bash-scripting/scripting/*.sh # Make all scripts executable
-        ./bash-scripting/scripting/check-dir.sh # Run a specific script
+        ./bash-scripting/scripting/check-dir.sh ./bash-scripting/scripting # Run a specific script
