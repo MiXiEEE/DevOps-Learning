@@ -1,0 +1,15 @@
+name: Scheduled Task
+
+on: 
+    schedule:
+        - cron: '0 0 * * *' # Runs at midnight UTC
+  
+jobs:
+    run-script:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout code
+              uses: actions/checkout@v4
+            
+            - name: Run script
+              run: ./bash-scripting/scripting/log-parse.sh
