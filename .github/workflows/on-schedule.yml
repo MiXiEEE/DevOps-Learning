@@ -1,8 +1,11 @@
 name: Scheduled Task
 
 on: 
-    schedule:
-        - cron: '0 0 * * *' # Runs at midnight UTC
+    push:
+        branches:
+            - main
+    #schedule:
+        #- cron: '0 0 * * *' # Runs at midnight UTC
   
 jobs:
     run-script:
