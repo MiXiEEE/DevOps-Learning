@@ -1,0 +1,35 @@
+name: Test Bash Scripts
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  test-scripts:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install dependencies
+        run: |
+          sudo apt update
+          sudo apt install -y shellcheck bats
+
+      - name: Check Bash syntax
+        run: |
+          for script in ./bash-scripting/bash-basics/*.sh; do
+            echo "Checking syntax for $script..."
+            bash -n "$script" || exit 1
+          done
+
+      - name: Run ShellCheck ( best practices )
+        run: |
+          shellcheck bash-scripting/bash-basics/*.sh
+
+      - name: Run tests with BATS
+        run: |
+          bats test/example.bats
+            
