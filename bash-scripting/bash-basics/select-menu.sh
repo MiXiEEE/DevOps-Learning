@@ -1,6 +1,6 @@
 #!/bin/bash
 
-read -p "Enter your number from 1-5: " number
+read -rp "Enter your number from 1-5: " number
 
 if [[ "$number" =~ ^[1-5]$ ]]; then
 	case $number in

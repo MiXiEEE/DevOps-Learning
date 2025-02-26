@@ -40,7 +40,7 @@ greet "Mika" "arg2"
 
 print_args() {
 	echo "total arguments: $#"
-	echo "Arguments as list: $@"
+	echo "Arguments as list:" "$@"
 	echo "Arguments as string: $*"
 }
 print_args "one" "two" "three"

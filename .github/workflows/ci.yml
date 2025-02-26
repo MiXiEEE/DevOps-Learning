@@ -1,9 +1,11 @@
 name: CI Pipeline # This is the name of the pipeline
 
 on:
-  push: # Trigger the pipeline on push events
-    branches:
-      - main # Specify the branch to watch for changes
+  workflow_dispatch:
+#on:
+  #push: # Trigger the pipeline on push events
+    #branches:
+      #- main # Specify the branch to watch for changes
 
 jobs:
   build:

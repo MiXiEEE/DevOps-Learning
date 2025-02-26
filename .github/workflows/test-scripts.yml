@@ -1,9 +1,11 @@
 name: Test Bash Scripts
 
 on:
-  push:
-    branches:
-      - main
+  workflow_dispatch:
+#on:
+  #push:
+    #branches:
+      #- main
 
 jobs:
   test-scripts:
