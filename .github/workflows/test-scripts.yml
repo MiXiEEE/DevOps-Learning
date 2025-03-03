@@ -18,10 +18,17 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Install dependencies
+      - name: Install dependencies (Ubuntu)
+        if: matrix.os == 'ubuntu-latest'
         run: |
           sudo apt update
           sudo apt install -y shellcheck bats
+      
+      - name: Install dependencies (maxOS)
+        if: matrix.os == 'macos-latest'
+        run: |
+          brew update
+          brew install shellcheck bats
 
       - name: Check Bash syntax
         run: |
