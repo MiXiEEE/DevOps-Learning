@@ -1,25 +1,25 @@
 name: Caching example
 
 on:
-	workflow_dispatch:
+  workflow_dispatch:
 
 jobs:
-	build:
-		steps:
-			- name: Checkout repository
-			- uses: actions/checkout@v4
+  build:
+    steps:
+      - name: Checkout repository
+      - uses: actions/checkout@v4
 
-			- name: Cache shellcheck bats
-				id: cache-apt
-				uses: actions/cache@v4
-				with:
-          path: /var/cache/apt/archives
-					key: apt-cache-&{{ runner.os }}
-					restore-keys: |
-						apt-cache-${{ runner.os}}-
-			
-			- name: Install dependencies
-				if: steps.cache-apt.outputs.cache-hit != 'true'
-				run: |
-					sudo apt update
-					sudo apt install -y shellcheck bats
+      - name: Cache shellcheck bats
+        id: cache-apt
+        uses: actions/cache@v4
+        with:
+        path: /var/cache/apt/archives
+        key: apt-cache-&{{ runner.os }}
+        restore-keys: |
+          apt-cache-${{ runner.os}}-
+
+      - name: Install dependencies
+        if: steps.cache-apt.outputs.cache-hit != 'true'
+        run: |
+          sudo apt update
+          sudo apt install -y shellcheck bats
