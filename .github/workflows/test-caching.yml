@@ -24,4 +24,4 @@ jobs:
       
       - name: Run tests with BATS
         run: |
-        bats test/example.bats
+          bats test/example.bats
