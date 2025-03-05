@@ -24,7 +24,7 @@ jobs:
           sudo apt update
           sudo apt install -y shellcheck bats
       
-      - name: Install dependencies (maxOS)
+      - name: Install dependencies (macOS)
         if: matrix.os == 'macos-latest'
         run: |
           brew update
@@ -44,4 +44,3 @@ jobs:
       - name: Run tests with BATS
         run: |
           bats test/example.bats
-            

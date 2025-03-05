@@ -1,0 +1,27 @@
+name: Test with cached Dependencies
+
+on:
+  workflow_dispatch:
+
+jobs:
+  test:
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Restore APT Cache 
+        id: restore-cache
+        uses: actions/cache@v4
+        with:
+          path: /var/cache/apt/archives
+          key: apt-cache${{ runner.os }}
+          restore-keys: |
+            apt-cache-${{ runner.os }}
+
+      - name: Run Shellcheck
+        run: |
+          shellcheck bash-scripting/bash-basics/*.sh
+      
+      - name: Run tests with BATS
+        run: |
+        bats test/example.bats
