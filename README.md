@@ -1,4 +1,4 @@
-# DevOps Learning Progress - Day 8
+# DevOps Learning Progress
 
 ## Skills Acquired
 
