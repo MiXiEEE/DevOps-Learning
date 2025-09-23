@@ -1,32 +1,24 @@
-# DevOps Learning Progress
+# DevOps Learning Progress - Day 1 Restart
 
-## Skills Acquired
+## Overview
+This portfolio tracks my journey learning DevOps from the ground up. I am starting fresh with a focus on fundamentals and practical exercises.
 
-### Linux Fundamentals
-- Basic Linux commands (navigation, file management, etc.)
-- Understanding file permissions (`chmod`, `chown`, `chgrp`)
-- Process management (`ps aux`, `top`, `kill`)
+## Skills to Build
+- Linux fundamentals: commands, file system, permissions
+- Bash scripting basics and automation
+- Text processing tools: grep, awk, sed
+- Version control with Git and collaboration on GitHub
+- CI/CD fundamentals, Infrastructure as Code, Containers, Monitoring (to be added)
 
-### Networking
-- Network commands: `ping`, `curl`, `wget`, `ip a`
-- Checking open ports and setting up a Netcat listener
+## Current Status
+- Refreshed Git and WSL setup
+- Reviewed existing bash scripts and learning materials
+- Ready to rebuild foundational knowledge step-by-step
 
-### Bash Scripting
-- Basics of bash scripting and error handling
-- Script creation for:
-  - Directory checks (`check-dir.sh`)
-  - File existence checks (`file-exists.sh`)
-  - File organization (`file-organizer.sh`)
-  - Backup processes (`tar-backup-script.sh`, `monitor-disk-usage.sh`)
-  - Process monitoring (`mon-ssh.sh`, `monitor-service.sh`)
+## Future Goals
+- Complete basics and advance to CI/CD pipelines
+- Learn containerization with Docker and Kubernetes
+- Master monitoring, logging, and security in DevOps pipelines
 
-### Text Processing
-- Basics of `awk`, `sed`, and `grep`
-- Practical applications for text processing tasks
-
-### Logs and Monitoring
-- Understanding the role of logs and monitoring in DevOps
-
-## Future Learning Goals
-- Exploring Docker and containerization
-- Automation of system tasks
+---
+This file will be updated progressively with new skills and projects.
