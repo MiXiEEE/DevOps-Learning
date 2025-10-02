@@ -6,7 +6,6 @@ on:
 jobs:
   test-directory-check:
   runs-on: ubuntu-latest
-
   steps:
     - name: Checkout repository
       uses: action/checkout@v4
