@@ -1,0 +1,18 @@
+name: CI for directory-check.sh
+
+on:
+  workflow_dispatch:
+
+jobs:
+  test-directory-check:
+  runs-on: ubuntu-latest
+
+  steps:
+    - name: Checkout repository
+      uses: action/checkout@v4
+    
+    - name: Make script executable
+      run: chmod +x bash-scripting/scripting/directory-check.sh
+
+    - name: Run directory-check.sh
+      run: bash bash-scripting/scripting/directory-check.sh
