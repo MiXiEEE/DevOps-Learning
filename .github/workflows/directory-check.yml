@@ -6,6 +6,8 @@ on:
 jobs:
   test-directory-check:
     runs-on: ubuntu-latest
+    env:
+      TARGET_DIR: bash-scripting/scripting
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4

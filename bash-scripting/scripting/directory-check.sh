@@ -54,9 +54,13 @@ directory_validation() {
 
 # Prompt user for directory path input
 directory_input() {
+    if [ -z "$TARGET_DIR" ]; then
     local directory_path trimmed_directory_path
     echo -n -e "${CYAN}Input directory path or to exit (quit, exit), you would like to check: ${RESET}" >&2
     read -r directory_path
+    else
+        directory_path=$TARGET_DIR
+    fi
     trimmed_directory_path=$(trim_whitespace "$directory_path")
     echo "$trimmed_directory_path"
 }
