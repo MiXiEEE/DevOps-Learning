@@ -420,3 +420,18 @@
 2025-10-03 21:00:06 - [ERROR] Directory '' doesn't exist.
 2025-10-03 21:00:08 - [ERROR] Directory '' doesn't exist.
 2025-10-03 21:00:22 - [ERROR] Directory 'cd ..' doesn't exist.
+2025-10-03 21:05:13 - [SUCCESS] Successfully printed contents!
+2025-10-03 21:06:02 - [SUCCESS] Successfully printed contents!
+2025-10-03 21:07:03 - [SUCCESS] Successfully printed contents!
+2025-10-03 21:08:25 - [ERROR] Directory 'no' doesn't exist.
+2025-10-03 21:08:31 - [SUCCESS] Successfully printed contents!
+2025-10-03 21:08:36 - [ERROR] Directory 'no' doesn't exist.
+2025-10-03 21:08:54 - [SUCCESS] Successfully printed contents!
+2025-10-03 21:10:47 - [SUCCESS] Successfully printed contents!
+2025-10-03 21:10:52 - [ERROR] incorrectly typed command
+2025-10-03 21:29:03 - [SUCCESS] Successfully printed contents!
+2025-10-03 21:29:56 - [SUCCESS] Successfully printed contents!
+2025-10-03 21:30:00 - [ERROR] incorrectly typed command
+2025-10-03 21:30:09 - [SUCCESS] Successfully printed contents!
+2025-10-03 21:30:10 - [ERROR] incorrectly typed command
+2025-10-03 21:30:31 - [SUCCESS] Successfully printed contents!

@@ -54,6 +54,7 @@ directory_validation() {
 
 # Prompt user for directory path input
 directory_input() {
+    # Checks if env variable is set in yml file
     if [ -z "$TARGET_DIR" ]; then
     local directory_path trimmed_directory_path
     echo -n -e "${CYAN}Input directory path or to exit (quit, exit), you would like to check: ${RESET}" >&2
@@ -67,10 +68,14 @@ directory_input() {
 
 # Prompt user for Yes/No input and validate response
 validate_yes_no_input() {
-    echo -e "${CYAN}Input if you wanna search for another directory y/n${RESET}" >&2
-    read -r check
+    # If env variable isn't empty exits script
+    if [ ! -z "$TARGET_DIR" ]; then
+        check="N"
+    else
+        echo -e "${CYAN}Input if you wanna search for another directory y/n${RESET}" >&2
+        read -r check
+    fi
     trimmed_check=$(trim_whitespace "$check")
-    
     # Loop untill the user enters 'Y' or 'N' ( case-insensitive )
     while [[ ! "${trimmed_check,,}" = "y" && ! "${trimmed_check,,}" = "n" ]]
     do
