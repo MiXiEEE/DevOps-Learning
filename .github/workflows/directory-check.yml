@@ -6,8 +6,15 @@ on:
 jobs:
   test-directory-check:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        dir:
+          - bash-scripting/scripting
+          - bash-scripting/invalid-dir
+          - /tmp
+          - /nonexistent
     env:
-      TARGET_DIR: bash-scripting/scripting
+      TARGET_DIR: ${{ matrix.dir }}
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4

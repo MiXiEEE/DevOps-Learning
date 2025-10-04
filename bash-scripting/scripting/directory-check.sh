@@ -86,6 +86,12 @@ validate_yes_no_input() {
     echo "$trimmed_check"
 }
 
+# Exiting errors with exit 1 for env variables
+env_error_code () {
+    if [ ! -z "$TARGET_DIR" ]; then
+        exit 1
+    fi
+}
 
 # Main script exuctable loop
 while [ "$exit_condition" = true ]
@@ -98,6 +104,8 @@ do
         # Show error message only after the first attempt
         if [ "$first_attempt" = false ]; then
             print_and_log_message "${RED}[ERROR]${RESET} Directory '$trimmed_directory_path' doesn't exist."
+            # Erorr code for env variable if set "exit 1"
+            env_error_code
         fi
 
         trimmed_directory_path=$(directory_input)

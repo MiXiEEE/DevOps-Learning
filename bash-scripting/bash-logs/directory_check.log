@@ -435,3 +435,16 @@
 2025-10-03 21:30:09 - [SUCCESS] Successfully printed contents!
 2025-10-03 21:30:10 - [ERROR] incorrectly typed command
 2025-10-03 21:30:31 - [SUCCESS] Successfully printed contents!
+2025-10-04 20:02:53 - [ERROR] Directory 'no' doesn't exist.
+2025-10-04 20:06:22 - [ERROR] Directory 'no' doesn't exist.
+2025-10-04 20:06:47 - [ERROR] Directory 'no' doesn't exist.
+2025-10-04 20:06:57 - [ERROR] Directory 'hello' doesn't exist.
+2025-10-04 20:10:37 - [ERROR] Directory 'no' doesn't exist.
+2025-10-04 20:30:15 - [ERROR] Directory 'no' doesn't exist.
+2025-10-04 20:30:17 - [ERROR] Directory 'test' doesn't exist.
+2025-10-04 20:30:19 - [ERROR] Directory 'more' doesn't exist.
+2025-10-04 20:30:20 - [ERROR] Directory 'ok' doesn't exist.
+2025-10-04 20:30:24 - [SUCCESS] Successfully printed contents!
+2025-10-04 20:30:25 - [ERROR] incorrectly typed command
+2025-10-04 20:30:29 - [ERROR] Directory 'no' doesn't exist.
+2025-10-04 20:30:31 - [ERROR] Directory 'm' doesn't exist.
