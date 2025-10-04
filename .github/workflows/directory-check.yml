@@ -25,3 +25,24 @@ jobs:
 
       - name: Run directory-check.sh
         run: bash bash-scripting/scripting/directory-check.sh
+      
+      - name: Upload log artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: directory-check-log-${{ matrix.dir }}
+          path: bash-logs/directory_check.log
+          
+summarize-results:
+  needs: test-directory-check
+  runs-on: ubuntu-latest
+  if: always()
+  steps:
+    - name: Download all logs
+      uses: actions/download-artifact@v3
+      with:
+        path: ./all-logs
+
+    - name: Summarize logs
+      runs: |
+        echo "Summary of directory-check errors:"
+        grep -H "\[ERROR\]" ./all-logs/* || echo "No errors found in logs."
