@@ -45,4 +45,4 @@ jobs:
       - name: Summarize logs
         run: |
           echo "Summary of directory-check errors:"
-          grep -H "\[ERROR\]" bash-logs/directory_check.log/* || echo "No errors found in logs."
+          grep -H "\[ERROR\]" bash-scripting/bash-logs/directory_check.log/* || echo "No errors found in logs."
