@@ -27,7 +27,7 @@ jobs:
         run: bash bash-scripting/scripting/directory-check.sh
       
       - name: Upload log artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: directory-check-log-${{ matrix.dir }}
           path: bash-logs/directory_check.log
@@ -38,7 +38,7 @@ jobs:
     if: always()
     steps:
       - name: Download all logs
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           path: ./all-logs
 
