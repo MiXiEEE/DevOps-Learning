@@ -45,4 +45,4 @@ jobs:
       - name: Summarize logs
         run: |
           echo "Summary of directory-check errors:"
-          grep -rH "\[ERROR\]" ./all-logs* || echo "No errors found in logs."
+          grep -rH "\[ERROR\]" ./all-logs || echo "No errors found in logs."
