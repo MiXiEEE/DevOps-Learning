@@ -37,9 +37,12 @@ jobs:
     runs-on: ubuntu-latest
     if: always()
     steps:
+      - name: List root directory
+        run: ls -la
+
       - name: List log directory contents
         run: ls -l bash-scripting/bash-logs || echo "No logs directory found"
-        
+
       - name: Upload log artifact
         uses: actions/upload-artifact@v4
         with:
