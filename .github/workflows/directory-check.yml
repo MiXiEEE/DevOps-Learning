@@ -20,19 +20,20 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: List root directory
-        run: ls -la
-
       - name: Make script executable
         run: chmod +x bash-scripting/scripting/directory-check.sh
 
       - name: Run directory-check.sh
         run: bash bash-scripting/scripting/directory-check.sh
-      
+
+      - name: Set formatted directory name
+        id: vars
+        run: echo "FORMATTED_DIR=${{ matrix.dir//\//- }}" >> $GITHUB_ENV
+
       - name: Upload log artifact
         uses: actions/upload-artifact@v4
         with:
-          name: directory-check-log-${{ matrix.dir }}
+          name: directory-check-log-${{ env.FORMATTED_DIR }}
           path: bash-scripting/bash-logs/directory_check.log
 
   summarize-results:
