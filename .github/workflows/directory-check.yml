@@ -20,6 +20,9 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      - name: List root directory
+        run: ls -la
+        
       - name: Make script executable
         run: chmod +x bash-scripting/scripting/directory-check.sh
 
@@ -37,17 +40,8 @@ jobs:
     runs-on: ubuntu-latest
     if: always()
     steps:
-      - name: List root directory
-        run: ls -la
-
       - name: List log directory contents
         run: ls -l bash-scripting/bash-logs || echo "No logs directory found"
-
-      - name: Upload log artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: directory-check-log-${{ matrix.dir }}
-          path: bash-scripting/bash-logs/directory_check.log
 
       - name: Download all logs
         uses: actions/download-artifact@v4
