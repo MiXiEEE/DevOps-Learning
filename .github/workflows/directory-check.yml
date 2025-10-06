@@ -29,7 +29,6 @@ jobs:
       - name: Set formatted directory name
         run: |
         FORMATTED_DIR="${{ matrix.dir }}"
-        # Replace all '/' with '-' in the bash variable
         FORMATTED_DIR="${FORMATTED_DIR//\//-}"
         echo "FORMATTED_DIR=$FORMATTED_DIR" >> $GITHUB_ENV
 
