@@ -40,7 +40,7 @@ jobs:
       - name: Upload log artifact
         uses: actions/upload-artifact@v4
         with:
-          name: directory-check-log-${{ matrix-dir }}
+          name: directory-check-log-${{ matrix.dir }}
           path: bash-scripting/bash-logs/directory_check.log
 
       - name: Download all logs
