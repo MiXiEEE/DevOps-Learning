@@ -22,7 +22,7 @@ jobs:
 
       - name: List root directory
         run: ls -la
-        
+
       - name: Make script executable
         run: chmod +x bash-scripting/scripting/directory-check.sh
 
@@ -33,7 +33,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: directory-check-log-${{ matrix.dir }}
-          path: bash-logs/directory_check.log
+          path: bash-scripting/bash-logs/directory_check.log
 
   summarize-results:
     needs: test-directory-check
