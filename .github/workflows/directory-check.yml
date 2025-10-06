@@ -3,7 +3,7 @@ name: CI for directory-check.sh
 on:
   workflow_dispatch:
 
-jobs:
+jobs: # comment test
   test-directory-check:
     runs-on: ubuntu-latest
     continue-on-error: true # <- Let other matrix jobs run despite failure ( will stop on first failure )
@@ -44,7 +44,7 @@ jobs:
     if: always()
     steps:
       - name: List log directory contents
-        run: ls -l bash-scripting/bash-logs || echo "No logs directory found"
+        run: ls -l bash-scripting/bash-logs/ || echo "No logs directory found"
 
       - name: Download all logs
         uses: actions/download-artifact@v4
