@@ -43,9 +43,6 @@ jobs: # comment test
     runs-on: ubuntu-latest
     if: always()
     steps:
-      - name: List log directory contents
-        run: ls -l bash-scripting/bash-logs/ || echo "No logs directory found"
-
       - name: Download all logs
         uses: actions/download-artifact@v4
         with:
