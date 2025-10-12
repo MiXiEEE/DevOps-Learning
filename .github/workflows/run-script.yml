@@ -14,6 +14,14 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      - name: Install shellcheck
+        run: sudo apt-get update && sudo apt-get install -y shellcheck
+
+      - name: Lint scripts with shellcheck
+        run: |
+          shellcheck bash-scripting/bash-basics/script.sh
+          shellcheck bash-scripting/bash-basics/test.sh
+
       - name: Make scripts executable
         run: |
           chmod +x bash-scripting/bash-basics/script.sh
