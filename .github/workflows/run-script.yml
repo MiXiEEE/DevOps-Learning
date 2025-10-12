@@ -9,13 +9,23 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    continue-on-error: false # Stops running on first failue
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Make script executable
-        run: chmod +x script.sh
+      - name: Make scripts executable
+        run: |
+          chmod +x bash-scripting/bash-basics/script.sh
+          chmod +x bash-scripting/bash-basics/test.sh
         
       - name: Execute script.sh
-        run: ./script.sh
-      
+        run: ./bash-scripting/bash-basics/script.sh
+
+      - name: Run tests
+        run: ./bash-scripting/bash-basics/test.sh
+
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          path: bash-scripting/bash-logs/dummy_logs.log
