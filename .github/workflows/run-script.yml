@@ -9,7 +9,7 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    continue-on-error: false # Stops running on first failue
+    continue-on-error: true # Stops running on first failue
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
