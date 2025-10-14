@@ -34,7 +34,6 @@ jobs: # comment test
           echo "FORMATTED_DIR=$FORMATTED_DIR" >> $GITHUB_ENV
 
       - name: Upload log artifact
-        if: steps.run_directories.conclusion == 'failure'
         uses: actions/upload-artifact@v4
         with:
           name: directory-check-log-${{ env.FORMATTED_DIR }}
