@@ -89,6 +89,7 @@ validate_yes_no_input() {
 # Exiting errors with exit 1 for env variables
 env_error_code () {
     if [ ! -z "$TARGET_DIR" ]; then
+    print_and_log_message "${RED}[ERROR]${RESET} Directory does not exist: $TARGET_DIR"
         exit 1
     fi
 }
