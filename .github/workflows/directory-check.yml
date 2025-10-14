@@ -5,16 +5,15 @@ on:
 
 jobs: # comment test
   test-directory-check:
+    runs-on: ubuntu-latest
+    continue-on-error: true # <- Let other matrix jobs run despite failure ( will stop on first failure )
     strategy:
       matrix:
-        os: [ubuntu-latest, macos-latest]
         dir:
           - bash-scripting/scripting
           - bash-scripting/invalid-dir
           - /tmp
           - /nonexistent
-    runs-on: ${{ matrix.os }}
-    continue-on-error: true # <- Let other matrix jobs run despite failure ( will stop on first failure )
     env:
       TARGET_DIR: ${{ matrix.dir }}
     steps:
