@@ -1,6 +1,5 @@
 #!/bin/bash
 RED="\e[31m"
-CYAN="\e[36m"
 RESET="\e[0m"
 
 # error handling function, exit on fail
@@ -19,7 +18,7 @@ elif [ -z "$(ls -A "$directory" 2>/dev/null)" ]; then #2>dev/null supresses the 
 	error_exit "Directory is empty ${directory}"
 fi
 
-log_file="log_$(date +%Y-%m-%d_%H-%M-%S).txt" #sets log file name with date
+# log_file="log_$(date +%Y-%m-%d_%H-%M-%S).txt" #sets log file name with date
 
 maxCount=0
 for file in "$directory"/* "$directory"/.* #loops through all hidden files / unhidden files

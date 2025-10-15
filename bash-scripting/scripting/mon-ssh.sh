@@ -9,36 +9,41 @@ if [[ ! -f "$LOG_FILE" ]]; then
 fi
 
 # Clear the log file
-> "$LOG_FILE"
+true > "$LOG_FILE"
 
 # Extract failed ssh login attempts and count by IP
 if grep -q "Failed password" "$FETCH_LOG"; then
     grep "Failed password" "$FETCH_LOG" | awk '
-	{
-		split($1, dateTime, "T");  # Split ISO format at "T"
-		split(dateTime[2], timeParts, ".");  # Remove milliseconds
-		split(dateTime[1], dateParts, "-");  # Split date into components
-
-		# Format date to DD-MM-YYYY
-		formattedDate = dateParts[3] "-" dateParts[2] "-" dateParts[1];
-
-		# Format time to HH:MM:SS
-		formattedTime = timeParts[1];
-
-		# Increment count for the IP address
-		ip = $(NF-3);  # Store IP in a variable for clarity
-		ipCount[ip]++;  # Increment the count for this IP
-
-		# Update the date and time to the most recent occurrence
-		ipDate[ip] = formattedDate;
-		ipTime[ip] = formattedTime;
-	}
-	END {
-		# Loop through the ipCount array
-		for (ip in ipCount) {
-			print "IP:", ip, "Attempts:", ipCount[ip], "Most Recent Date:", ipDate[ip], "Time:", ipTime[ip];
-		}
-	}' >> "$LOG_FILE"
+    {
+        # Extract date and time (fields 1-3 in auth.log)
+        month = $1
+        day = $2
+        time = $3
+        
+        # Find the IP address - it'\''s after "from" in the message
+        ip = "unknown"
+        for (i = 1; i <= NF; i++) {
+            if ($i == "from" && $(i+1) ~ /^[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+$/) {
+                ip = $(i+1)
+                break
+            }
+        }
+        
+        # Increment count for the IP address
+        ipCount[ip]++
+        
+        # Update the date and time to the most recent occurrence
+        ipDate[ip] = day "-" month
+        ipTime[ip] = time
+    }
+    END {
+        # Loop through the ipCount array
+        for (ip in ipCount) {
+            if (ip != "unknown") {
+                print "IP:", ip, "Attempts:", ipCount[ip], "Most Recent Date:", ipDate[ip], "Time:", ipTime[ip]
+            }
+        }
+    }' >> "$LOG_FILE"
 else
-	echo "No failed login attempts found." >> "$LOG_FILE"
+    echo "No failed login attempts found." >> "$LOG_FILE"
 fi

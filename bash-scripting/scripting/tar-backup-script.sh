@@ -4,28 +4,27 @@ RED="\e[31m"
 CYAN="\e[36m"
 RESET="\e[0m"
 
-
 error_exit() {
-	echo -e "${RED}Error: $1${RESET}" >&2
-	exit 1
+    echo -e "${RED}Error: $1${RESET}" >&2
+    exit 1
 }
 
 echo -e "${CYAN}Source directory you want to create back up${RESET}"
-read sourceDir
+read -r sourceDir
 
 if [ -z "$sourceDir" ]; then
-	error_exit "No source directory provided."
+    error_exit "No source directory provided."
 fi
 
 echo -e "${CYAN}Where to save the backup, provide extension too!${RESET}"
-read backup
+read -r backup
 
 if [ -z "$backup" ]; then
-	backup="default.tar.gz"
+    backup="default.tar.gz"
 fi
 
 if [ ! -d "$sourceDir" ]; then
-	error_exit "The source directory '$sourceDir' does not exist."
+    error_exit "The source directory '$sourceDir' does not exist."
 fi
 
 baseName="${backup%%.*}"
@@ -37,22 +36,22 @@ if [[ "$extension" != "tar.gz" ]]; then
 fi
 
 if [ -z "$baseName" ] || [ -z "$extension" ]; then
-	error_exit "Invalid backup filename."
+    error_exit "Invalid backup filename."
 fi
 
 availableSpace=$(df -k "$sourceDir" | awk 'NR==2 {print $4}')
 requiredSpace=$(du -s "$sourceDir" | awk '{print $1}')
 if [ "$requiredSpace" -ge "$availableSpace" ]; then
-	error_exit "Not enough disk space to create the backup!"
+    error_exit "Not enough disk space to create the backup!"
 fi
 
-	backupFile="${baseName}-$(date -I).${extension}"
-	tar cvfz "$backupFile" -C "$(dirname "$sourceDir")" "$(basename "$sourceDir")"
+backupFile="${baseName}-$(date -I).${extension}"
 
-if [ $? -eq 0 ]; then
-	echo -e "${GREEN}Backup completed successfully! File saved as: $backupFile${RESET}"
-	echo -e "${CYAN}Listing contents of the backup file:${RESET}"
-	tar -tvf "$backupFile"
+# Direct exit code check instead of using $?
+if tar cvfz "$backupFile" -C "$(dirname "$sourceDir")" "$(basename "$sourceDir")"; then
+    echo -e "${GREEN}Backup completed successfully! File saved as: $backupFile${RESET}"
+    echo -e "${CYAN}Listing contents of the backup file:${RESET}"
+    tar -tvf "$backupFile"
 else
-	error_exit "Backup failed."
+    error_exit "Backup failed."
 fi

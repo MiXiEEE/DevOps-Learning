@@ -1,7 +1,6 @@
 #!/bin/bash
 GREEN="\e[32m"
 RED="\e[31m"
-CYAN="\e[36m"
 RESET="\e[0m"
 
 # echo -e "${CYAN}Input directory path!${RESET}"

@@ -1,6 +1,6 @@
 #!/bin/bash
 echo "Input how many loops you wanna do"
-read loopCount
+read -r loopCount
 #for ((i=1; i<=loopCount; i++))
 #do
 #	echo "$i"

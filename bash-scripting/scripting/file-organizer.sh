@@ -7,7 +7,7 @@ RESET="\e[0m"
 # Allows user to provide directory path as command line argument
 if [ -z "$1" ]; then
 	echo -e "${CYAN}Input directory path${RESET}"
-	read DIRECTORY
+	read -r DIRECTORY
 else
 	DIRECTORY="$1"
 fi
@@ -22,7 +22,7 @@ if [ ! -d "$DIRECTORY" ]; then
 fi
 
 # Check if directory is empty
-if [ -z "$(ls -A $DIRECTORY)" ]; then
+if [ -z "$(ls -A "$DIRECTORY")" ]; then
 	error_exit "The directory is empty."
 fi
 

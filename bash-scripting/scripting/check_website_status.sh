@@ -30,7 +30,7 @@ check_website_status() {
 	echo "----------------------------------------" | tee -a "$LOGS"
 }
 
-read -p "Input Website name to check its status like e.g example.com: " website_name
+read -r -p "Input Website name to check its status like e.g example.com: " website_name
 
 # checks website_name string is empty
 if [ -z "$website_name" ]; then

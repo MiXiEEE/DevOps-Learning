@@ -69,7 +69,7 @@ directory_input() {
 # Prompt user for Yes/No input and validate response
 validate_yes_no_input() {
     # If env variable isn't empty exits script
-    if [ ! -z "$TARGET_DIR" ]; then
+    if [ -n "$TARGET_DIR" ]; then
         check="N"
     else
         echo -e "${CYAN}Input if you wanna search for another directory y/n${RESET}" >&2
@@ -88,7 +88,7 @@ validate_yes_no_input() {
 
 # Exiting errors with exit 1 for env variables
 env_error_code () {
-    if [ ! -z "$TARGET_DIR" ]; then
+    if [ -n "$TARGET_DIR" ]; then
         exit 1
     fi
 }

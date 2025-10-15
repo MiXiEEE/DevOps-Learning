@@ -1,6 +1,6 @@
 #!/bin/bash
 echo "Provide file, and its path"
-read filepath
+read -r filepath
 if [ -f "$filepath" ]; then
 	echo "File exists"
 else

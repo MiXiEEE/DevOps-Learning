@@ -10,7 +10,7 @@ set -e
 trap 'echo "An error occured. Exiting..."; exit 1' ERR
 trap 'echo "Stopped!"; exit 0' INT
 
-read -p "Input file with its path: " file
+read -r -p "Input file with its path: " file
 
 # checks if file exists and is a file
 if [ ! -f "$file" ]; then
