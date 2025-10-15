@@ -28,12 +28,14 @@ jobs: # comment test
         run: bash bash-scripting/scripting/directory-check.sh
 
       - name: Set formatted directory name
+        if: always()
         run: |
           FORMATTED_DIR="${{ matrix.dir }}"
           FORMATTED_DIR="${FORMATTED_DIR//\//-}"
           echo "FORMATTED_DIR=$FORMATTED_DIR" >> $GITHUB_ENV
 
       - name: Upload log artifact
+        if: always()
         uses: actions/upload-artifact@v4
         with:
           name: directory-check-log-${{ env.FORMATTED_DIR }}
