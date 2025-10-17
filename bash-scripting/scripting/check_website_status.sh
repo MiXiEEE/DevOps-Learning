@@ -3,7 +3,6 @@
 LOGS="/home/mika/log-dir/web_status.log"
 
 check_website_status() {
-	website_name=$1
 	full_webname="https://$website_name"
 
 	response=$(curl -Is "$full_webname")
@@ -30,10 +29,12 @@ check_website_status() {
 	echo "----------------------------------------" | tee -a "$LOGS"
 }
 
-read -r -p "Input Website name to check its status like e.g example.com: " website_name
+if [ $# -eq 0 ]; then
+	read -r -a website_name -p "Input Website name to check its status like e.g (example.com or example.com wikipedia.org): "
+	set -- "${website_name[@]}" # 'set --' will re-assign the script's positional arguments ($1, $2, ...) to the array elements.
+fi
 
-# checks website_name string is empty
-if [ -z "$website_name" ]; then
+if [ $# -eq 0 ]; then
 	echo "input is empty"
 	exit 1
 fi
@@ -43,6 +44,9 @@ fi
 trap 'echo "Monitoring stopped."; exit 0' INT
 
 while true; do
-	check_website_status "$website_name"
+	for website_name in "$@"; do
+		check_website_status "$website_name"
+	done
+	echo "Ctrl + C to Close out and exit from website check"
 	sleep 10
 done
