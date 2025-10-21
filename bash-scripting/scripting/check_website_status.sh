@@ -1,6 +1,9 @@
 #!/bin/bash
 
-LOGS="/home/mika/log-dir/web_status.log"
+# Host logs
+# LOGS="/home/mika/log-dir/web_status.log"
+# Docker logs
+LOGS="/app/log-dir/web_status.log"
 
 check_website_status() {
 	full_webname="https://$website_name"

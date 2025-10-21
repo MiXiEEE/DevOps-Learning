@@ -22,6 +22,7 @@ WORKDIR /app
 RUN chmod +x monitor-disk-usage.sh
 RUN chmod +x check_website_status.sh
 RUN chmod +x run_all.sh
+RUN mkdir -p /app/log-dir
 RUN ls -l /app
 
 # This command will run your script when the container starts
