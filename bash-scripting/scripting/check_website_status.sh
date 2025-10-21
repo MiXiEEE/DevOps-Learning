@@ -51,5 +51,6 @@ while true; do
 		check_website_status "$website_name"
 	done
 	echo "Ctrl + C to Close out and exit from website check"
-	sleep 10
+	# sleep 10
+	exit 0
 done

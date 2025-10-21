@@ -1,0 +1,17 @@
+name: Docker Basics
+
+on:
+  workflow_dispatch
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Build a docker image
+        run: docker build -t devops-learning:latest .
+
+      - name: Test docker image
+        run: docker run --rm devops-learning:latest google.com wikipedia.org
